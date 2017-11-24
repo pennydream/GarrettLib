@@ -32,6 +32,6 @@ def test_Model_dtype():
     Test that the initialization of a Model class throws a type error for 
     things that are not pandas dataframes
     """
-    some = "A wrong data type" 
+    some = "A wrong data type of type string" 
     with pytest.raises(TypeError):
         Model(some)    
