@@ -5,19 +5,19 @@ import pandas as pd
 import sys
 sys.path.append("../garrett_lib/")
 from Model import Model
-from SupervisedModel import SupervisedModel
+from Classification import Classification
 
-# Create a realization of the SupervisedModel class that can be used for testing
-class Helper_SupervisedModel(SupervisedModel):
+# Create a realization of the Classification class that can be used for testing
+class Helper_Classification(Classification):
     def train(self):
         return True
     def test(self):
         return True
 
-# Get init and data stored in SupervisedModel class
-def test_SupervisedModel_init():
+# Get init and data stored in Classification class
+def test_Classification_init():
     """
-    Given a pandas dataframe, test the creation of a supervised model class.
+    Given a pandas dataframe, test the creation of a classification class.
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -26,22 +26,22 @@ def test_SupervisedModel_init():
          [10,11,12]
          ])
 
-    m = Helper_SupervisedModel(some)
+    m = Helper_Classification(some)
     data_2 = m.getData()
     assert some.equals(data_2) 
 
-def test_SupervisedModel_dtype():
+def test_Classification_dtype():
     """
-    Test that the initialization of a supervised Model class throws a type error for 
+    Test that the initialization of a Classification class throws a type error for 
     things that are not pandas dataframes
     """
     some = "A wrong data type of type string" 
     with pytest.raises(TypeError):
-        SupervisedModel(some)   
+        Classification(some)   
 
-def test_SupervisedModel_train():
+def test_Classification_train():
     """
-    Test that SupervisedModel has a working train abstract method
+    Test that Classification has a working train abstract method
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -50,13 +50,13 @@ def test_SupervisedModel_train():
          [10,11,12]
          ])
 
-    m = Helper_SupervisedModel(some)
+    m = Helper_Classification(some)
     assert m.train()
 
 
-def test_SupervisedModel_test():
+def test_Classification_test():
     """
-    Test that SupervisedModel has a working test abstract method
+    Test that Classification has a working test abstract method
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -65,7 +65,7 @@ def test_SupervisedModel_test():
          [10,11,12]
          ])
 
-    m = Helper_SupervisedModel(some)
+    m = Helper_Classification(some)
     assert m.test()
 
 

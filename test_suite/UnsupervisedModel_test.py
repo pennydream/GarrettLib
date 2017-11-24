@@ -17,7 +17,7 @@ class Helper_UnsupervisedModel(UnsupervisedModel):
 # Get init and data stored in SupervisedModel class
 def test_UnsupervisedModel_init():
     """
-    Given a pandas dataframe, test the creation of a model class.
+    Given a pandas dataframe, test the creation of an unsupervised model class.
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -32,7 +32,7 @@ def test_UnsupervisedModel_init():
 
 def test_UnsupervisedModel_dtype():
     """
-    Test that the initialization of a Model class throws a type error for 
+    Test that the initialization of a UnsupervisedModel class throws a type error for 
     things that are not pandas dataframes
     """
     some = "A wrong data type of type string" 
@@ -41,7 +41,7 @@ def test_UnsupervisedModel_dtype():
 
 def train_UnsupervisedModel_train():
     """
-    Test that SupervisedModel has a working train abstract method
+    Test that UnsupervisedModel has a working train abstract method
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -56,7 +56,7 @@ def train_UnsupervisedModel_train():
 
 def test_UnsupervisedModel_convert():
     """
-    Test that SupervisedModel has a working test abstract method
+    Test that UnsupervisedModel has a working test abstract method
     """
     some = pd.DataFrame([
          [1,2,3],

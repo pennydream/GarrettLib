@@ -5,19 +5,19 @@ import pandas as pd
 import sys
 sys.path.append("../garrett_lib/")
 from Model import Model
-from SupervisedModel import SupervisedModel
+from Regression import Regression
 
-# Create a realization of the SupervisedModel class that can be used for testing
-class Helper_SupervisedModel(SupervisedModel):
+# Create a realization of the Regression class that can be used for testing
+class Helper_Regression(Regression):
     def train(self):
         return True
     def test(self):
         return True
 
-# Get init and data stored in SupervisedModel class
-def test_SupervisedModel_init():
+# Get init and data stored in Regression class
+def test_Regression_init():
     """
-    Given a pandas dataframe, test the creation of a supervised model class.
+    Given a pandas dataframe, test the creation of a regression class.
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -26,22 +26,22 @@ def test_SupervisedModel_init():
          [10,11,12]
          ])
 
-    m = Helper_SupervisedModel(some)
+    m = Helper_Regression(some)
     data_2 = m.getData()
     assert some.equals(data_2) 
 
-def test_SupervisedModel_dtype():
+def test_Regression_dtype():
     """
-    Test that the initialization of a supervised Model class throws a type error for 
+    Test that the initialization of a regression class throws a type error for 
     things that are not pandas dataframes
     """
     some = "A wrong data type of type string" 
     with pytest.raises(TypeError):
-        SupervisedModel(some)   
+        Regression(some)   
 
-def test_SupervisedModel_train():
+def test_Regression_train():
     """
-    Test that SupervisedModel has a working train abstract method
+    Test that regression has a working train abstract method
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -50,13 +50,13 @@ def test_SupervisedModel_train():
          [10,11,12]
          ])
 
-    m = Helper_SupervisedModel(some)
+    m = Helper_Regression(some)
     assert m.train()
 
 
-def test_SupervisedModel_test():
+def test_Regression_test():
     """
-    Test that SupervisedModel has a working test abstract method
+    Test that regression has a working test abstract method
     """
     some = pd.DataFrame([
          [1,2,3],
@@ -65,7 +65,7 @@ def test_SupervisedModel_test():
          [10,11,12]
          ])
 
-    m = Helper_SupervisedModel(some)
+    m = Helper_Regression(some)
     assert m.test()
 
 
