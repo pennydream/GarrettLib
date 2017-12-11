@@ -5,7 +5,7 @@ import numpy as np
 # Import the class to be tested
 import sys
 sys.path.append("../garrett_lib/")
-from KNeighborsRegression import LinearRegression
+from KNeighborsRegression import KNeighborsRegression
 
 # Get init and data stored in KNeighborsRegression class
 def test_KNeighborsRegression_init():
@@ -60,12 +60,12 @@ def test_KNeighborsRegression_test():
          ])
 
     some_2 = pd.DataFrame([
-         1.0,2.0,3.0
+         1.0,2.0,3.0,4.0
          ])
 
     m = KNeighborsRegression(some)
     m.train(some_2)
-    test = m.test(some)
+    test = m.test(some, 1)
 
     for i in range(3):
         assert round(test[0][i], 3) == some_2[0][i]
