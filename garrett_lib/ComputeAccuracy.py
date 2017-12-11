@@ -6,9 +6,11 @@ from AccuracyMeasure import AccuracyMeasure
 class ComputeAccuracy(AccuracyMeasure):
 
     def __init__(self, data_true, data_test):
-        if isinstance(data_true, pd.Series) and isinstance(data_test, pd.Series):
+        if (isinstance(data_true, pd.Series) and isinstance(data_test, pd.Series)):
             self.data_true = data_true
+
             self.data_test = data_test
+
         else:
             raise TypeError("Data is of type Pandas DataFrame.")
 
@@ -18,6 +20,8 @@ class ComputeAccuracy(AccuracyMeasure):
         the sum of squared error for regression tasif(self.data_true[i] == self.data_test[i]):
                     true+=1ks
         """
+        self.data_true.index = range(0,len(self.data_true))
+        self.data_test.index = range(0,len(self.data_test))
         if task is "classification":
             true = 0
             length = self.data_true.shape[0]
