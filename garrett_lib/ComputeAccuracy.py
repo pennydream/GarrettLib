@@ -35,7 +35,7 @@ class ComputeAccuracy(AccuracyMeasure):
             length = self.data_true.shape[0]
             for i in range(0,length):
                 true += np.square(self.data_true[i] - self.data_test[i])
-            return float(true)/length
+            return np.sqrt(float(true)/length)
 
         else:
             return True

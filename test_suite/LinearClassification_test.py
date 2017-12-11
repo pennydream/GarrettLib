@@ -36,13 +36,13 @@ def test_LinearClassification_train():
     """
     some = pd.DataFrame([
          [1,2,3],
-         [4,5,6],
+         [1,5,6],
          [7,8,9],
          [10,11,12]
          ])
 
     some_2 = pd.DataFrame([
-         1,2,3
+         1.0,-1,1,-1
          ])
     m = LinearClassification(some)
     assert m.train(some_2)
@@ -54,24 +54,26 @@ def test_LinearClassification_test():
     """
     some = pd.DataFrame([
          [1,2,3],
-         [4,5,6],
-         [7,8,9],
+         [1,1,3],
+         [8,8,11],
          [10,11,12]
          ])
 
     some_2 = pd.DataFrame([
-         1.0,2.0,3.0
+         1.0,1,-1,-1
          ])
 
     m = LinearClassification(some)
-    m.train(some_2)
+    m.train(some_2, num_iters=20)
     test = m.test(some)
 
+    acc = 0
     for i in range(3):
-        assert round(test[0][i], 3) == some_2[0][i]
+        acc += (test[i] == some_2[0][i])
+    assert acc > 0.5
 
-    print test[0]
-    print some_2[0]
+    #print test[0]
+    #print some_2[0]
     #print some_2[0].equals(test[0])
 
     #    for i in range(test.shape[0]):

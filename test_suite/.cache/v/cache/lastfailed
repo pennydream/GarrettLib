@@ -1,5 +1,3 @@
 {
-  "LinearClassification_test.py::test_LinearClassification_init": true, 
-  "LinearClassification_test.py::test_LinearClassification_test": true, 
-  "LinearClassification_test.py::test_LinearClassification_train": true
+  "ComputeAccuracy_test.py::test_ComputeAccuracy_getAccRegression": true
 }
