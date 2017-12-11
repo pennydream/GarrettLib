@@ -2,7 +2,7 @@ from abc import ABCMeta, abstractmethod
 import pandas as pd
 from SupervisedModel import SupervisedModel
 
-class Classification(SupervisedModel):
+class LinearClassification(SupervisedModel):
 
     
     """
