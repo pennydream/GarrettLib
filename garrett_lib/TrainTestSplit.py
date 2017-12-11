@@ -19,8 +19,6 @@ class TrainTestSplit():
 
         #index = np.random.randint(0,n,num_train)
         train_index = random.sample(X.index, num_train)
-
-        print train_index
         test_index = X.index[map(lambda x: False if x in train_index else True, X.index.astype(np.ndarray))]
         
         train_x = X.iloc[train_index]
