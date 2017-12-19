@@ -7,28 +7,36 @@ class LinearRegression(Regression):
     
     def test(self, new_data):
     
-        # Multiply weights self.w with new_data
 
-        return pd.DataFrame(self.w.T.dot(new_data).T)
+        # Use w to get predictions 
+        new_data.loc[:,"ones"] = np.ones(new_data.shape[0])
+        return pd.DataFrame(new_data.dot(self.w).T.sum())
+
+        #return pd.DataFrame(self.w.T.dot(new_data).T)
+
     "If trained, Given new data (pandas dataframe), return the output of the  model (Labels or Values) in a pandas series"
 
    
 
 
     def train(self, labels):
-        
+   
         # We have training data X and labels y...
+        # Get weights w such that RMSE is minimized
         # w = (XtX)^-1(Xty)
+
+        self.data.loc[:, "ones"] = np.ones(self.data.shape[0])
+
+        XtX = self.data.T.dot(self.data)
+       
+        Xty = self.data.T.dot(labels)
         
-        XtX = self.data.dot(self.data.T)
-
-        Xty = self.data.dot(labels)
-
-        piXtX = np.linalg.pinv(XtX)
-
+        piXtX = np.linalg.pinv(XtX)        
+        
         self.w = np.dot(piXtX, Xty)
 
         return True
+
     "Given training data, create the model"
 
     """

@@ -9,7 +9,7 @@ from ComputeAccuracy import ComputeAccuracy
 # Test getAccuracy method of ComputeAccurucy class for regression tasks... returns a float
 def test_ComputeAccuracy_getAccRegression():
     """
-    Given a pandas dataframe, test the creation of a model class.
+    Given two series of true values and model results, get the root mean squared error 
     """
     some_true = pd.Series([
          10, 10.5, 10.1, 10.0 
@@ -21,7 +21,7 @@ def test_ComputeAccuracy_getAccRegression():
 
     m = ComputeAccuracy(some_true, some_test)
 
-    assert round(m.getAccuracy("regression"), 3) ==  0.065 
+    assert round(m.getAccuracy("regression"), 3) ==  0.255 
 
 # Test getAccuracy method of ComputeAccurucy class for classification tasks... returns a float
 def test_ComputeAccuracy_getAccClasses():

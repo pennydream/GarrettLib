@@ -42,7 +42,7 @@ def test_LinearRegression_train():
          ])
 
     some_2 = pd.DataFrame([
-         1,2,3
+         1,2,3,4
          ])
     m = LinearRegression(some)
     assert m.train(some_2)
@@ -60,7 +60,7 @@ def test_LinearRegression_test():
          ])
 
     some_2 = pd.DataFrame([
-         1.0,2.0,3.0
+         1.0,2.0,3.0, 4.0
          ])
 
     m = LinearRegression(some)
