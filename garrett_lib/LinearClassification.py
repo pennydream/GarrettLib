@@ -7,7 +7,7 @@ import numpy as np
 class LinearClassification(SupervisedModel):
 
 
-    def train(self, labels, num_iters = 100):
+    def train(self, labels, num_iters = 150):
         self.labels = labels
 
         train_x = self.data
@@ -31,7 +31,7 @@ class LinearClassification(SupervisedModel):
             # Get accuracy for each iteration
             ca = ComputeAccuracy(pd.DataFrame(train_y)[0], pd.DataFrame(pred_y_inner)[0])
             acc = ca.getAccuracy("classification")
-            print acc
+
             #acc = compute_accuracy(train_y, pred_y_inner)
 
             # Check if accuracy is better than previous one. If so, save it
@@ -63,7 +63,7 @@ class LinearClassification(SupervisedModel):
         test_x = np.c_[test_x, np.ones(test_x.shape[0])]
         ret = pd.Series(np.array(map(lambda x: 1 if np.dot(self.w,x)>0 else -1, test_x)))
         ret.index = test_index
-        return ret
+        return pd.DataFrame(ret)
 
     """
     @abstractmethod

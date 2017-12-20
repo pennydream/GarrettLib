@@ -29,7 +29,7 @@ class KNeighborsRegression(Regression):
             #pred_y += u[indx]
         ret = pd.DataFrame(pred_y)
         ret.index = ret_index
-        return ret 
+        return pd.DataFrame(ret) 
 
     "If trained, Given new data (pandas dataframe), return the output of the  model (Labels or Values) in a pandas series"
  
