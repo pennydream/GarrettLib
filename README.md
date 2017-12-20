@@ -10,6 +10,8 @@ The following libraries are used in GarrettLib:
 -  Pandas 1.12.1
 -  PyTest 3.0.5
 -  Jupyter 1.0.0
+-  Matplotlib 2.0.0
+-  Scikit-Learn 0.19.1
 
 The latest version of these libraries can all be installed by running the following command: 
 
@@ -17,8 +19,10 @@ The latest version of these libraries can all be installed by running the follow
     pip install pandas
     pip install pytest
     pip install jupyter
+    pip install matplotlib
+    pip install scikit-learn
     
-Numpy and pandas are useful for linear algebra computations as well as data frame storage and manipulation. PyTest is used for testing and Jupyter is used to display tutorials and examples. 
+Numpy and pandas are useful for linear algebra computations as well as data frame storage and manipulation. PyTest is used for testing, Jupyter is used to display tutorials and examples, Scikit-Learn is used to download datasets for examples, and Matplotlib is used for graphs. PyTest, Jupyter, Scikit-Learn, and Matplotlib are not used in the actual library, only in tutorials and testing.
 
 
 
@@ -40,6 +44,6 @@ Jupyter is a web application that can run locally on your PC. It acts as an IDE 
     
 from commandline. This will open Jupyter in a web browser. Jupyter will run from port 8888. If a web browser did not automatically pop up, Jupyter can be accessed by going to "localhost:8888" in any web browser. From here, Jupyter allows one to navagate to files and open them. Jupyter also introduces another type of python filetype, the iPythonNotebook (.ipynb). This file type allows Python to be run in modules. It also allows for the user to write Markdown, the same language from what this README is written in, inside the Python code. Finally, you can also display graphs and tables in a more readable format. Overall, it is very useful for tutorials and examples of Python programming. 
 
-In order to view a tutorial, navagate to ~/GarrettLib/tutorials and open the iPythonNotebook of your choice. From here, you can run code or simply view the code that was run the last time it was open. This folder will be populated with use cases for GarrettLib, specifically those from the User Stories shown in my design documents. 
+In order to view a tutorial, navagate to ~/GarrettLib/tutorials and open the iPythonNotebook of your choice. From here, you can run code or simply view the code that was run the last time it was open. Run code by clicking on the block with code and holding down SHIFT + ENTER. This folder will be populated with use cases for GarrettLib, specifically those from the User Stories shown in my design documents. 
 
 ## Go to ~/GarrettLib/tutorials/get-started.ipynb to get started!
