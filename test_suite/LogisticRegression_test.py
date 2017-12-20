@@ -65,7 +65,7 @@ def test_LogisticRegression_test():
 
     m = LogisticRegression(some)
     m.train(some_2, num_iters=20)
-    test = m.test(some)
+    test = m.test(some)[0]
 
     acc = 0
     for i in range(3):

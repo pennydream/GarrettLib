@@ -34,7 +34,7 @@ class LogisticRegression(Classification):
         test_x = new_data.as_matrix()
         test_x = np.c_[test_x, np.ones(test_x.shape[0])]
         temp = np.array(map(lambda x: 1/(1+np.exp(-np.dot(w,x))), test_x))
-        return pd.Series(map(lambda x: 1 if x>0 else -1, temp))
+        return pd.DataFrame(map(lambda x: 1 if x>0 else -1, temp))
 
     """
     @abstractmethod

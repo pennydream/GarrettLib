@@ -71,7 +71,7 @@ def test_CrossValidation_results():
          [10,11,12]
          ])
 
-    labels = pd.DataFrame([
+    labels = pd.Series([
         1,2,3,4
         ])
 

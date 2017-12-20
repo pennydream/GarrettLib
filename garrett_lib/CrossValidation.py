@@ -7,6 +7,8 @@ import numpy as np
 class CrossValidation(SupervisedModel):
 
     def getAccuracy(self, y_1, y_2, task="regression"): 
+        print type(y_1), type(y_2)
+        
         cm = ComputeAccuracy(y_1, y_2)
         return cm.getAccuracy(task)
         
